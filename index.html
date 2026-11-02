@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Character set: lets the page show all letters and symbols correctly -->
+    <meta charset="UTF-8">
+    <!-- Viewport: makes the page fit phone and tablet screens (needed for mobile-friendly SEO) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Part 3 SEO: the title is the blue link in Google results; the description is the grey text under it. Each page has its own, with keywords like "flower boutique Johannesburg" -->
+    <title>Bloom and Blossom | Flower Boutique Johannesburg &amp; Menlyn</title>
+    <meta name="description" content="Bloom and Blossom is a flower boutique in Johannesburg and Menlyn. Order fresh rose bouquets, tulips and custom arrangements made with love.">
+    <meta name="author" content="Bloom and Blossom">
+    <!-- Part 3 SEO: Open Graph tags control how the page looks when shared on social media -->
+    <meta property="og:title" content="Bloom and Blossom | Flower Boutique Johannesburg &amp; Menlyn">
+    <meta property="og:description" content="Bloom and Blossom is a flower boutique in Johannesburg and Menlyn. Order fresh rose bouquets, tulips and custom arrangements made with love.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_ZA">
+    <!-- Part 3 Security: Content Security Policy only allows files from this site
+         (plus OpenStreetMap map tiles) and stops injected scripts from running -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <!-- Favicon: the small logo shown on the browser tab -->
+    <link rel="icon" href="_images/businesslogo.png" type="image/png">
+    <!-- Part 3 fix: the original link tag was missing its closing ">" which
+         swallowed the title tag -->
+    <!-- Stylesheet: one CSS file styles every page -->
+    <link rel="stylesheet" href="css_assets/myfirststyles.css">
+    <!-- Part 3 SEO (local SEO): structured data tells search engines this is a local florist -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Florist",
+      "name": "Bloom and Blossom",
+      "description": "Flower boutique in Johannesburg and Menlyn selling fresh rose bouquets, tulips and custom arrangements.",
+      "telephone": "+27682097787",
+      "areaServed": ["Johannesburg", "Menlyn", "Pretoria"],
+      "sameAs": ["https://www.instagram.com/BloomAndBlossom/", "https://www.tiktok.com/@BloomAndBlossom"]
+    }
+    </script>
+</head>
+<!-- Everything inside <body> is what the visitor sees -->
+<body>
+    <!-- Part 3: logo and menu are now wrapped in a header element -->
+    <!-- Header: logo, menu and page title -->
+    <header>
+    <!-- Logo: alt text describes the image; width/height stop the page jumping while it loads; responsive-image class lets it shrink on small screens -->
+    <img class="responsive-image" src="_images/businesslogo.png" alt="Bloom and Blossom flower boutique logo" width="200" height="200">
+    <nav>
+        <!-- Main menu: aria-current marks the page the visitor is on -->
+        <ol>
+            <li><a href="index.html" aria-current="page">Home </a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="enquiries.html">Enquiries</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ol>
+    </nav>
+    <!-- Page heading (h1): only one per page, important for SEO -->
+    <h1 style="color:rgb(219, 93, 173)">Welcome to Bloom and Blossom</h1>
+    </header>
+    <!-- Main: the unique content of this page -->
+    <main>
+    <!-- Part 3: was an h3; changed to h2 so headings follow h1 > h2 order -->
+    <h2 class="tagline fade-in" style="color:rgb(219, 93, 173)">Where flowers speak from the heart , blooming beauty made with love</h2>
+    <!-- Part 3 SEO: internal links to the most important pages -->
+    <p class="fade-in">Browse our <a href="services.html">rose bouquets and tulips</a>, read <a href="about.html">our story</a>, or <a href="enquiries.html">place an enquiry</a> for your next flower order.</p>
+    <!-- Part 3 update: featured bouquet photos on the home page (existing images, reused).
+         Each photo is a link to the Services page. alt text describes the photo for screen readers and SEO.
+         width/height stop the page jumping while images load; loading="lazy" delays images below the screen. -->
+    <section class="fade-in" aria-labelledby="featured-heading">
+        <h2 id="featured-heading">Our favourite bouquets</h2>
+        <div class="featured">
+            <figure>
+                <a href="services.html">
+                    <img class="responsive-image" src="_images/redandpinkbouquet.jpg" alt="Red and pink rose bouquet with baby's breath in pink wrapping" width="300" height="260" loading="lazy" decoding="async">
+                    <figcaption>Red and pink bouquet</figcaption>
+                </a>
+            </figure>
+            <figure>
+                <a href="services.html">
+                    <img class="responsive-image" src="_images/tulips.avif" alt="Red tulips wrapped in kraft paper with a ribbon" width="300" height="260" loading="lazy" decoding="async">
+                    <figcaption>Tulips</figcaption>
+                </a>
+            </figure>
+            <figure>
+                <a href="services.html">
+                    <img class="responsive-image" src="_images/redonlybouquet.jpg" alt="Large red rose bouquet wrapped in black paper" width="300" height="260" loading="lazy" decoding="async">
+                    <figcaption>Red rose bouquet</figcaption>
+                </a>
+            </figure>
+            <figure>
+                <a href="services.html">
+                    <img class="responsive-image" src="_images/pinkbouquet.jpg" alt="Pink rose bouquet with baby's breath in a frosted wrap" width="300" height="260" loading="lazy" decoding="async">
+                    <figcaption>Pink bouquet</figcaption>
+                </a>
+            </figure>
+        </div>
+        <p class="centre-button"><a class="btn" href="services.html">See all our bouquets</a></p>
+    </section>
+    </main>
+    <!-- Part 3: footer added (semantic layout + internal links + contact details) -->
+    <footer>
+        <p>&copy; 2026 Bloom and Blossom | Flower boutique in Johannesburg and Menlyn</p>
+        <p><a href="services.html">Our bouquets</a> | <a href="enquiries.html">Place an enquiry</a> | <a href="contact.html">Find us</a> | <a href="tel:+27682097787">068 209 7787</a></p>
+    </footer>
+    <!-- main.js: scroll fade-in animation, used on every page -->
+    <script src="js_assets/main.js"></script>
+</body>
+</html>

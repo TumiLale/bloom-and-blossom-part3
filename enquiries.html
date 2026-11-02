@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Character set: lets the page show all letters and symbols correctly -->
+    <meta charset="UTF-8">
+    <!-- Viewport: makes the page fit phone and tablet screens (needed for mobile-friendly SEO) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Part 3 SEO: the title is the blue link in Google results; the description is the grey text under it. Each page has its own, with keywords like "flower boutique Johannesburg" -->
+    <title>Order Flowers | Enquiries | Bloom and Blossom</title>
+    <meta name="description" content="Send a flower enquiry to Bloom and Blossom. Choose red roses, pink roses, tulips or a bouquet and collect in Johannesburg or Menlyn.">
+    <meta name="author" content="Bloom and Blossom">
+    <!-- Part 3 SEO: Open Graph tags control how the page looks when shared on social media -->
+    <meta property="og:title" content="Order Flowers | Enquiries | Bloom and Blossom">
+    <meta property="og:description" content="Send a flower enquiry to Bloom and Blossom. Choose red roses, pink roses, tulips or a bouquet and collect in Johannesburg or Menlyn.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_ZA">
+    <!-- Part 3 Security: Content Security Policy only allows files from this site
+         (plus OpenStreetMap map tiles) and stops injected scripts from running -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <!-- Favicon: the small logo shown on the browser tab -->
+    <link rel="icon" href="_images/businesslogo.png" type="image/png">
+    <!-- Part 3 fix: the original link tag was missing its closing ">" which
+         swallowed the title tag -->
+    <!-- Stylesheet: one CSS file styles every page -->
+    <link rel="stylesheet" href="css_assets/myfirststyles.css">
+</head>
+<!-- Everything inside <body> is what the visitor sees -->
+<body>
+    <!-- Header: logo, menu and page title -->
+    <header>
+        <!-- Logo: alt text describes the image; width/height stop the page jumping while it loads; responsive-image class lets it shrink on small screens -->
+        <img class="responsive-image" src="_images/businesslogo.png" alt="Bloom and Blossom flower boutique logo" width="200" height="200">
+    <nav>
+        <!-- Main menu: aria-current marks the page the visitor is on -->
+        <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Service</a></li>
+            <li><a href="enquiries.html" aria-current="page">Enquiries</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ol>
+    </nav>
+        <!-- Page heading (h1): only one per page, important for SEO -->
+        <h1 style="color:rgb(219, 93, 173)">For enquiries</h1> 
+        <h1 style="color:rgb(219, 93, 173)">Order Now!!</h1>
+    </header>
+    <!-- Main: the unique content of this page -->
+    <main>
+        <!-- Part 3: form completed. Fixes: lable typo, unclosed select, missing submit button, labels not linked to inputs.
+             novalidate turns off the browser's own pop-ups so enquiries.js can show its own messages. -->
+        <form id="enquiry-form" class="enquiry-form fade-in" novalidate>
+            <!-- Name field: required, letters only (checked in enquiries.js). The span under each field shows its error message -->
+            <div class="form-row">
+                <label for="name"> Name:</label>
+                <input type="text" id="name" name="name" autocomplete="name" required>
+                <span class="field-error" id="name-error" role="alert"></span>
+            </div>
+            <!-- Phone field: type="tel" shows a number keypad on phones -->
+            <div class="form-row">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone number" autocomplete="tel" placeholder="e.g. 0682097787" required>
+                <span class="field-error" id="phone-error" role="alert"></span>
+            </div>
+            <!-- Email field: type="email" shows an email keyboard on phones -->
+            <div class="form-row">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" autocomplete="email" required>
+                <span class="field-error" id="email-error" role="alert"></span>
+            </div>
+            <!-- Drop-down list: the values match the product ids in services.js -->
+            <div class="form-row">
+                <label for="flower">Choose what type of flowers</label>
+                <select id="flower" name="Service" required>
+                    <option value="">Please choose...</option>
+                    <option value="redflowers">redflowers</option>
+                    <option value="tulips">tulips</option>
+                    <option value="pinkflowers">pinkflowers</option>
+                    <option value="redbouquet">redbouquet</option>
+                    <option value="pinkbouquet">pinkbouquet</option>
+                    <option value="redandpinkbouquet">redandpinkbouquet</option>
+                </select>
+                <span class="field-error" id="flower-error" role="alert"></span>
+            </div>
+            <!-- Radio buttons: only one location can be chosen. fieldset and legend group them for screen readers -->
+            <div class="form-row">
+                <fieldset>
+                    <legend>Collection location</legend>
+                    <label><input type="radio" name="location" value="Johannesburg"> Johannesburg</label>
+                    <label><input type="radio" name="location" value="Menlyn"> Menlyn</label>
+                </fieldset>
+                <span class="field-error" id="location-error" role="alert"></span>
+            </div>
+            <!-- Optional message box (maximum 300 characters, counted live) -->
+            <div class="form-row">
+                <label for="message">Message (optional)</label>
+                <textarea id="message" name="message" rows="4" maxlength="300"></textarea>
+                <span id="message-count" aria-live="polite">0 / 300</span>
+            </div>
+            <!-- Submit sends the form through the JavaScript checks; reset clears it -->
+            <div class="form-actions">
+                <button type="submit" class="btn">Send enquiry</button>
+                <button type="reset" class="btn btn-secondary">Clear form</button>
+            </div>
+        </form>
+        <p>Not sure what to choose? <a href="services.html">Browse our bouquets</a> or <a href="contact.html">contact us</a> directly.</p>
+
+        <!-- Part 3: modal window shown after a valid enquiry (jQuery, enquiries.js) -->
+        <!-- Hidden pop-up (modal). enquiries.js fills the summary and fades it in after a valid submit. role=dialog and aria-modal tell screen readers it is a pop-up -->
+        <div id="enquiry-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <div class="modal">
+                <h2 id="modal-title">Your enquiry</h2>
+                <div id="modal-summary"></div>
+                <p>Tap the button below to send this enquiry to us on WhatsApp.</p>
+                <p class="modal-actions">
+                    <a id="whatsapp-link" class="btn" href="https://wa.me/27682097787" target="_blank" rel="noopener noreferrer">Send on WhatsApp</a>
+                    <button type="button" id="modal-close" class="btn btn-secondary">Close</button>
+                </p>
+            </div>
+        </div>
+    </main>
+    <!-- Part 3: footer added (semantic layout + internal links + contact details) -->
+    <footer>
+        <p>&copy; 2026 Bloom and Blossom | Flower boutique in Johannesburg and Menlyn</p>
+        <p><a href="services.html">Our bouquets</a> | <a href="enquiries.html">Place an enquiry</a> | <a href="contact.html">Find us</a> | <a href="tel:+27682097787">068 209 7787</a></p>
+    </footer>
+    <!-- jQuery library (stored in this project). Must load before the scripts that use it -->
+    <script src="js_assets/jquery-3.7.1.min.js"></script>
+    <!-- main.js: scroll fade-in animation, used on every page -->
+    <script src="js_assets/main.js"></script>
+    <!-- enquiries.js: form checks, modal and WhatsApp link -->
+    <script src="js_assets/enquiries.js"></script>
+</body>
+</html>

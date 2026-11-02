@@ -1,0 +1,990 @@
+/* =====================================================================
+   Bloom and Blossom - main stylesheet (shared by every page)
+   Sections:
+     1. CSS Reset (original)
+     2. Base typography
+     3. Layout: header, nav, main, footer
+     4. Images (.responsive-image) and gallery
+     5. Cards (.container) used by the product list
+     6. Components: tabs, accordion, search bar, lightbox, modal, forms, map
+     7. Animations and transitions
+     8. Media queries (tablet and smartphone)
+   Part 3 edits are marked "Part 3" so they are easy to find.
+   ===================================================================== */
+
+/* ---------- 1. CSS Reset (original) ---------- */
+*  {
+      margin: 0;
+      padding: 0;
+     box-sizing: border-box;
+}
+
+/* ---------- 2. Base typography (Part 3) ----------
+   Part 2 feedback: typography was not set for the whole site, so a
+   default font, size and line height were added here. */
+/* The whole page: default font, size, line spacing and text colour */
+body{
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     font-size: 1rem;
+     line-height: 1.6;
+     color: #3b2030;
+}
+
+/* Main page heading (one per page). Pink colour is set in the HTML; this sets the font and size */
+h1{
+     color:bisque;
+     font-family: 'Courier New', Courier, monospace;
+     font-size: 40px;
+     padding: 20px;
+}
+
+/* Section headings */
+h2{
+    padding: 20px;
+}
+
+/* Part 3: the home page tagline was an h3 straight after the h1.
+   It is now an h2 (correct heading order for SEO) and this class keeps
+   it looking the same size as before. */
+/* Keeps the home page tagline the same size it had when it was an h3 */
+.tagline{
+     font-size: 1.17em;
+}
+
+/* Small headings (used on product cards and FAQ questions) */
+h3{
+     padding: 0 20px;
+}
+
+/* Paragraphs: space around the text so it does not touch the screen edge */
+p{
+     padding: 10px 20px;
+}
+
+/* Bullet lists inside the main content (the reset removed their indent) */
+main ul{
+     padding-left: 40px;
+}
+
+/* ---------- 3. Layout ---------- */
+/* Part 3: header, main and footer share the same pink background so the
+   pages keep the look they had when everything sat inside <header>. */
+/* All three page areas share the pink background */
+/* Footer at the bottom of every page */
+header, main, footer{
+     background-color: pink;
+}
+
+/* Menu bar background */
+nav{
+     background-color: pink;
+}
+
+/* Part 2 feedback: the old selectors targeted "nav ul" but the HTML uses
+   an ordered list (<ol>), so the menu styling never applied.
+   The selectors now target "nav ol". */
+/* The menu list: items sit side by side (flex) and wrap on small screens */
+nav ol{
+     display: flex;
+     flex-wrap: wrap;
+     list-style-type: none;
+     padding: 10px;
+}
+
+/* Each menu link: dark pink text, no underline, rounded shape. 'transition' makes colour changes smooth */
+nav ol li a{
+     color: #7a1f57;             /* darker than antiquewhite so it is readable on pink */
+     text-decoration: none;
+     padding: 10px;
+     display: inline-block;
+     border-radius: 35px;
+     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Part 2 feedback: pseudo-classes were used incorrectly (hover text was
+   bisque on antiquewhite, which cannot be read). Hover, focus, active and
+   visited states are now all defined with readable colours. */
+/* Links already clicked keep the same colour (no purple) */
+nav ol li a:visited{
+     color: #7a1f57;
+}
+
+/* Hover (mouse over) and focus (keyboard) state: dark pink background, white text */
+nav ol li a:hover,
+nav ol li a:focus{
+     background-color: #b03d85;
+     color: #ffffff;
+}
+
+/* Active state: the moment the link is being pressed */
+nav ol li a:active{
+     background-color: #8e2c68;
+     color: #ffffff;
+}
+
+/* Keyboard users get a clear outline around the link they are on */
+nav ol li a:focus-visible{
+     outline: 3px solid #3b2030;
+     outline-offset: 2px;
+}
+
+/* Marks the page the visitor is currently on (aria-current="page") */
+/* The link for the page you are on (matches aria-current="page" in the HTML) */
+nav ol li a[aria-current="page"]{
+     background-color: antiquewhite;
+     font-weight: bold;
+}
+
+footer{
+     padding: 20px;
+     text-align: center;
+     border-top: 2px solid #db5dad;
+}
+
+/* Footer text lines */
+footer p{
+     padding: 5px 0;
+}
+
+/* Footer links */
+footer a{
+     color: #7a1f57;
+}
+
+/* Footer link hover and focus colour */
+footer a:hover,
+footer a:focus{
+     color: #b03d85;
+}
+
+/* Links inside the page content */
+/* Links inside the main content */
+main a{
+     color: #7a1f57;
+}
+
+/* Main content link hover and focus colour */
+main a:hover,
+main a:focus{
+     color: #b03d85;
+}
+
+/* ---------- 4. Images ---------- */
+/* Part 2 feedback: "Class created but not implemented".
+   .responsive-image is now added to every <img> in the HTML. */
+/* Stops images from growing wider than the screen and keeps their shape */
+.responsive-image{
+    height: auto;
+    max-width: 100%;
+}
+
+/* Logo sits on its own line above the menu */
+header > img{
+     display: block;
+}
+
+/* Gallery (services page). Each image keeps its original 200 x 200 size;
+   object-fit stops the taller photos from being squashed. */
+/* Gallery on the services page: photos in a wrapping row with gaps */
+.gallery{
+     display: flex;
+     flex-wrap: wrap;
+     gap: 10px;
+     padding: 10px 20px;
+}
+
+/* Each gallery link crops the photo into a rounded box */
+.gallery a{
+     display: block;
+     border-radius: 15px;
+     overflow: hidden;
+}
+
+/* Photos stay 200 x 200; object-fit: cover crops instead of stretching them */
+.gallery img{
+     width: 200px;
+     height: 200px;
+     object-fit: cover;
+     display: block;
+     cursor: zoom-in;
+     transition: transform 0.4s ease;
+}
+
+/* Photo zooms slightly on hover or keyboard focus */
+.gallery a:hover img,
+.gallery a:focus img{
+     transform: scale(1.08);
+}
+
+/* Outline for keyboard users */
+.gallery a:focus-visible{
+     outline: 3px solid #3b2030;
+}
+
+/* ---------- 5. Cards (.container) ---------- */
+/* Part 2 feedback: ".container" was created but never used.
+   It now holds the product cards on the services page.
+   Fixes: "padding: 20" had no unit (so it was ignored) and the bisque text
+   colour could not be read on antiquewhite. */
+/* Card grid: 3 equal columns (changes to 2 and 1 in the media queries) */
+.container{
+    /*background-color: pink;*/
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 10px 20px;
+}
+
+/* Each card: light background, rounded corners, padding */
+.container div{
+    background-color: antiquewhite;
+    margin: 5px;
+    padding: 20px;
+    color: #3b2030;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 15px;
+}
+
+/* Card title */
+.container div h3{
+     padding: 0;
+     color: #7a1f57;
+}
+
+/* Card text */
+.container div p{
+     padding: 5px 0;
+}
+
+/* Small coloured line on each card, e.g. RED | BOUQUET */
+.product-tag{
+     font-size: 0.85rem;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+     color: #8e2c68;
+}
+
+/* Row holding the two card buttons */
+.card-actions{
+     display: flex;
+     flex-wrap: wrap;
+     gap: 10px;
+     align-items: center;
+}
+
+/* Buttons and button-style links (cards, forms, modal) */
+/* Button style used on buttons and button-looking links */
+.btn{
+     display: inline-block;
+     background-color: #b03d85;
+     color: #ffffff;
+     border: 2px solid #b03d85;
+     border-radius: 35px;
+     padding: 8px 18px;
+     font-family: inherit;
+     font-size: 1rem;
+     text-decoration: none;
+     cursor: pointer;
+     transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+/* Button hover/focus: colours swap */
+.btn:hover,
+.btn:focus{
+     background-color: #ffffff;
+     color: #8e2c68;
+}
+
+/* Button gets slightly smaller while pressed */
+.btn:active{
+     transform: scale(0.96);
+}
+
+/* Keyboard outline for buttons */
+.btn:focus-visible{
+     outline: 3px solid #3b2030;
+     outline-offset: 2px;
+}
+
+/* Outline version of the button (lighter look) */
+.btn-secondary{
+     background-color: transparent;
+     color: #8e2c68;
+}
+
+/* Outline button hover/focus: becomes filled */
+.btn-secondary:hover,
+.btn-secondary:focus{
+     background-color: #b03d85;
+     color: #ffffff;
+}
+
+/* main a sets a link colour; keep button-style links white */
+/* Button links must stay white (the general 'main a' rule would colour them pink) */
+main a.btn{
+     color: #ffffff;
+}
+
+main a.btn:hover,
+main a.btn:focus{
+     color: #8e2c68;
+}
+
+main a.btn-secondary{
+     color: #8e2c68;
+}
+
+main a.btn-secondary:hover,
+main a.btn-secondary:focus{
+     color: #ffffff;
+}
+
+/* ---------- 6. Components ---------- */
+
+/* Tabs (about page) */
+/* Row of tab buttons (About page) */
+.tab-list{
+     display: flex;
+     flex-wrap: wrap;
+     gap: 5px;
+     padding: 10px 20px 0;
+}
+
+/* Each tab button */
+.tab-list button{
+     font-family: inherit;
+     font-size: 1rem;
+     padding: 10px 20px;
+     border: 2px solid #b03d85;
+     border-bottom: none;
+     border-radius: 15px 15px 0 0;
+     background-color: antiquewhite;
+     color: #7a1f57;
+     cursor: pointer;
+     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Tab hover/focus */
+.tab-list button:hover,
+.tab-list button:focus{
+     background-color: #b03d85;
+     color: #ffffff;
+}
+
+/* The tab that is currently open */
+.tab-list button[aria-selected="true"]{
+     background-color: #b03d85;
+     color: #ffffff;
+     font-weight: bold;
+}
+
+/* Box holding each tab's content */
+.tab-panel{
+     margin: 0 20px;
+     padding: 10px 0;
+     background-color: antiquewhite;
+     border: 2px solid #b03d85;
+     border-radius: 0 15px 15px 15px;
+}
+
+/* Accordion (services page FAQ) */
+/* FAQ area on the services page */
+.accordion{
+     padding: 10px 20px;
+}
+
+/* Each FAQ question button */
+.accordion-header{
+     display: block;
+     width: 100%;
+     text-align: left;
+     font-family: inherit;
+     font-size: 1.1rem;
+     padding: 12px 20px;
+     margin-top: 5px;
+     background-color: antiquewhite;
+     color: #7a1f57;
+     border: 2px solid #b03d85;
+     border-radius: 15px;
+     cursor: pointer;
+     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* FAQ question hover, focus and open state */
+.accordion-header:hover,
+.accordion-header:focus,
+.accordion-header[aria-expanded="true"]{
+     background-color: #b03d85;
+     color: #ffffff;
+}
+
+/* The answer that slides open under a question */
+.accordion-panel{
+     background-color: antiquewhite;
+     border-radius: 0 0 15px 15px;
+     padding: 5px 20px;
+}
+
+/* Search, filter and sort bar (services page) */
+/* Search and filter controls: in a row, wrapping on small screens */
+.search-bar{
+     display: flex;
+     flex-wrap: wrap;
+     gap: 10px 20px;
+     align-items: flex-end;
+     padding: 10px 20px;
+}
+
+/* Labels above the search controls */
+.search-bar label{
+     display: block;
+     font-weight: bold;
+}
+
+/* Search box and drop-downs */
+.search-bar input,
+.search-bar select{
+     font-family: inherit;
+     font-size: 1rem;
+     padding: 8px;
+     border: 2px solid #b03d85;
+     border-radius: 10px;
+     background-color: #ffffff;
+     color: #3b2030;
+}
+
+/* Clear outline when a search control is selected */
+.search-bar input:focus,
+.search-bar select:focus{
+     outline: 3px solid #3b2030;
+}
+
+/* Lightbox (gallery and "View photo" buttons) */
+/* Lightbox: dark full-screen layer, hidden until .open is added by lightbox.js */
+.lightbox{
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(59, 32, 48, 0.9);
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     z-index: 1000;
+     opacity: 0;
+     visibility: hidden;
+     transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Visible state (fades in) */
+.lightbox.open{
+     opacity: 1;
+     visibility: visible;
+}
+
+/* The big photo: fits inside the screen */
+.lightbox img{
+     max-width: 90%;
+     max-height: 75vh;
+     border-radius: 15px;
+     background-color: #ffffff;
+}
+
+/* Text under the big photo */
+.lightbox-caption{
+     color: #ffffff;
+     padding: 15px;
+     text-align: center;
+}
+
+/* Round close/previous/next buttons */
+.lightbox button{
+     position: absolute;
+     background-color: antiquewhite;
+     color: #7a1f57;
+     border: none;
+     border-radius: 50%;
+     width: 44px;
+     height: 44px;
+     font-size: 1.5rem;
+     cursor: pointer;
+     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Lightbox button hover/focus */
+.lightbox button:hover,
+.lightbox button:focus{
+     background-color: #b03d85;
+     color: #ffffff;
+}
+
+/* Close button position (top right) */
+.lightbox-close{
+     top: 20px;
+     right: 20px;
+}
+
+/* Previous arrow position (left) */
+.lightbox-prev{
+     left: 20px;
+     top: 50%;
+}
+
+/* Next arrow position (right) */
+.lightbox-next{
+     right: 20px;
+     top: 50%;
+}
+
+/* Modal (enquiry confirmation) */
+/* Modal background: hidden by default; jQuery fadeIn() shows it */
+.modal-backdrop{
+     display: none;               /* jQuery fadeIn() switches this on */
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(59, 32, 48, 0.8);
+     z-index: 1100;
+     align-items: center;
+     justify-content: center;
+}
+
+/* The white-ish pop-up box on the enquiries page */
+.modal{
+     background-color: antiquewhite;
+     color: #3b2030;
+     width: 90%;
+     max-width: 500px;
+     max-height: 90vh;
+     overflow-y: auto;
+     padding: 20px;
+     border-radius: 15px;
+     border: 3px solid #b03d85;
+}
+
+/* Modal title */
+.modal h2{
+     padding: 0 0 10px;
+     color: #7a1f57;
+}
+
+/* Modal text */
+.modal p{
+     padding: 5px 0;
+}
+
+/* Row holding the modal buttons */
+.modal-actions{
+     display: flex;
+     flex-wrap: wrap;
+     gap: 10px;
+     padding-top: 15px;
+}
+
+/* Forms (enquiries page) */
+/* The enquiry form: padding and a maximum width so it stays readable */
+form.enquiry-form{
+     padding: 10px 20px;
+     max-width: 600px;
+}
+
+/* Each field group (label + input + error message) */
+.form-row{
+     padding: 8px 0;
+}
+
+/* Field labels and the radio group title */
+.form-row label,
+.form-row legend{
+     display: block;
+     font-weight: bold;
+     padding-bottom: 4px;
+}
+
+/* All text-style inputs, the drop-down and the message box look the same */
+.form-row input[type="text"],
+.form-row input[type="tel"],
+.form-row input[type="email"],
+.form-row select,
+.form-row textarea{
+     width: 100%;
+     font-family: inherit;
+     font-size: 1rem;
+     padding: 8px;
+     border: 2px solid #b03d85;
+     border-radius: 10px;
+     background-color: #ffffff;
+     color: #3b2030;
+     transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Field highlight when selected */
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus{
+     outline: 3px solid #3b2030;
+     background-color: #fff8f0;
+}
+
+/* Radio button group without the default border */
+.form-row fieldset{
+     border: none;
+}
+
+/* Radio labels sit side by side */
+.form-row fieldset label{
+     display: inline-block;
+     font-weight: normal;
+     margin-right: 20px;
+}
+
+/* Validation messages (set by enquiries.js) */
+/* Field with a mistake: red border and light red background (class added by enquiries.js) */
+.form-row input.invalid,
+.form-row select.invalid,
+.form-row textarea.invalid{
+     border-color: #b00020;
+     background-color: #fff0f0;
+}
+
+/* Red error text under a field. min-height keeps the layout from jumping */
+.field-error{
+     display: block;
+     color: #b00020;
+     font-weight: bold;
+     min-height: 1.4em;
+}
+
+/* Row holding the submit and clear buttons */
+.form-actions{
+     display: flex;
+     flex-wrap: wrap;
+     gap: 10px;
+     padding: 10px 0;
+}
+
+/* Map and contact list (contact page) */
+/* Two-map layout on the contact page: the maps sit side by side on wide screens */
+.maps-grid{
+     display: grid;
+     grid-template-columns: repeat(2, minmax(0, 1fr));
+     gap: 20px;
+     padding: 10px 20px;
+}
+
+/* One location = a heading, a map and two link buttons */
+.map-card h3{
+     padding: 0 0 5px;
+     color: #7a1f57;
+}
+
+/* Leaflet map box: needs a set height or it will not show */
+.map-box{
+     width: 100%;
+     height: 350px;
+     margin: 10px 0;
+     border-radius: 15px;
+     border: 2px solid #b03d85;
+}
+
+/* Row holding the "Open in Google Maps" and "Get directions" links under each map */
+.map-links{
+     display: flex;
+     flex-wrap: wrap;
+     gap: 10px;
+     padding: 0;
+}
+
+/* Space around the map section */
+.map-wrapper{
+     padding: 10px 20px;
+}
+
+/* Contact list without bullet points */
+.contact-list{
+     list-style-type: none;
+     padding: 10px 20px;
+}
+
+/* Space between contact items */
+.contact-list li{
+     padding: 5px 0;
+}
+
+/* Icons line up with the text beside them */
+.contact-list img{
+     vertical-align: middle;
+     margin-right: 8px;
+}
+
+/* Home page: row of featured bouquet photos (each one links to the Services page) */
+.featured{
+     display: grid;
+     grid-template-columns: repeat(4, minmax(0, 1fr));
+     gap: 10px;
+     padding: 10px 20px;
+}
+
+/* Each photo and its caption */
+.featured figure{
+     margin: 0;
+     border-radius: 15px;
+     overflow: hidden;
+     background-color: antiquewhite;
+}
+
+/* Photos are cropped to the same height so the row looks tidy */
+.featured img{
+     width: 100%;
+     height: 260px;
+     object-fit: cover;
+     display: block;
+     transition: transform 0.4s ease;
+}
+
+/* Photo zooms slightly on hover or keyboard focus */
+.featured a:hover img,
+.featured a:focus img{
+     transform: scale(1.06);
+}
+
+/* Link wrapper must not show the default link underline on the caption */
+.featured a{
+     display: block;
+     overflow: hidden;
+     text-decoration: none;
+}
+
+/* Text under each home page photo */
+.featured figcaption{
+     padding: 8px 10px;
+     text-align: center;
+     color: #7a1f57;
+     font-weight: bold;
+}
+
+/* Centres a single button under a section (home page) */
+.centre-button{
+     text-align: center;
+}
+
+/* Sub-headings and lists inside the About page tabs */
+.tab-panel h3{
+     padding: 10px 20px 0;
+     color: #7a1f57;
+}
+
+.tab-panel ul{
+     padding: 0 20px 10px 60px;
+}
+
+.tab-panel li{
+     padding: 3px 0;
+}
+
+/* The second form (contact page) reuses the enquiry form styles */
+form.enquiry-form + h2,
+.message-section h2{
+     padding-top: 20px;
+}
+
+/* Date input matches the other fields */
+.form-row input[type="date"]{
+     width: 100%;
+     font-family: inherit;
+     font-size: 1rem;
+     padding: 8px;
+     border: 2px solid #b03d85;
+     border-radius: 10px;
+     background-color: #ffffff;
+     color: #3b2030;
+}
+
+.form-row input[type="date"].invalid{
+     border-color: #b00020;
+     background-color: #fff0f0;
+}
+
+/* ---------- 7. Animations and transitions (Part 3) ---------- */
+/* The page title slides and fades in when a page loads */
+/* Keyframes: describes the title animation (start: invisible and 15px up; end: normal) */
+@keyframes slide-fade-in{
+     from{
+          opacity: 0;
+          transform: translateY(-15px);
+     }
+     to{
+          opacity: 1;
+          transform: translateY(0);
+     }
+}
+
+/* Applies the animation to every h1 when the page loads */
+h1{
+     animation: slide-fade-in 0.8s ease-out;
+}
+
+/* Sections fade in as they scroll into view. main.js adds the "js" class to
+   <html>, so visitors without JavaScript still see everything. .visible is
+   added once the element is on screen. */
+/* Hidden starting point for scroll animation (only when JavaScript is on) */
+.js .fade-in{
+     opacity: 0;
+     transform: translateY(20px);
+     transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* End point: main.js adds 'visible' when the section is on screen */
+.js .fade-in.visible{
+     opacity: 1;
+     transform: none;
+}
+
+/* Cards lift slightly on hover */
+/* Cards move smoothly when hovered */
+.container div{
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hovered card lifts up and gets a shadow */
+.container div:hover{
+     transform: translateY(-5px);
+     box-shadow: 0 8px 15px rgba(59, 32, 48, 0.25);
+}
+
+/* Visitors who ask their device to reduce motion get no animation */
+/* Respect visitors who turned off animation in their device settings */
+@media (prefers-reduced-motion: reduce){
+     *{
+          animation: none !important;
+          transition: none !important;
+     }
+     .js .fade-in{
+          opacity: 1;
+          transform: none;
+     }
+}
+
+/* ---------- 8. Media queries ---------- */
+/* Part 2 feedback: the old queries only changed the background colour, so the
+   layout, typography, navigation and images never adapted.
+   Breakpoints are now 768px (tablet) and 480px (smartphone); the original
+   background colours were kept. */
+
+/*Media Query for a tablet*/
+@media screen and (max-width: 768px) {
+   body {
+        background-color: bisque;
+   }
+
+   h1{
+        font-size: 32px;
+   }
+
+   h2{
+        font-size: 1.4rem;
+   }
+
+   /* Container goes from 3 columns to 2 */
+   .container{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+   }
+
+   header > img{
+        width: 150px;
+        height: auto;
+   }
+
+   /* Featured photos: 4 columns down to 2; the two maps stack */
+   .featured{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+   }
+
+   .maps-grid{
+        grid-template-columns: 1fr;
+   }
+
+   .map-box{
+        height: 320px;
+   }
+}
+
+/*Media Query for a smartphone*/
+@media screen and (max-width: 480px) {
+     body{
+          background-color: antiquewhite;
+          font-size: 0.95rem;
+     }
+
+     h1{
+          font-size: 26px;
+          padding: 15px;
+     }
+
+     h2{
+          font-size: 1.2rem;
+          padding: 15px;
+     }
+
+     /* Navigation links stack in a column so they are easy to tap */
+     nav ol{
+          flex-direction: column;
+     }
+
+     nav ol li a{
+          display: block;
+          text-align: center;
+     }
+
+     /* Container goes down to a single column */
+     .container{
+          grid-template-columns: 1fr;
+     }
+
+     header > img{
+          width: 120px;
+     }
+
+     .gallery img{
+          width: 140px;
+          height: 140px;
+     }
+
+     .search-bar{
+          flex-direction: column;
+          align-items: stretch;
+     }
+
+     .tab-list button{
+          flex: 1 1 100%;
+          border-radius: 15px;
+     }
+
+     .tab-panel{
+          border-radius: 15px;
+     }
+
+     /* Featured photos go to a single column */
+     .featured{
+          grid-template-columns: 1fr;
+     }
+
+     .featured img{
+          height: 220px;
+     }
+
+     .map-box{
+          height: 280px;
+     }
+
+     .lightbox-prev{
+          left: 5px;
+     }
+
+     .lightbox-next{
+          right: 5px;
+     }
+}

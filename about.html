@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Character set: lets the page show all letters and symbols correctly -->
+    <meta charset="UTF-8">
+    <!-- Viewport: makes the page fit phone and tablet screens (needed for mobile-friendly SEO) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Part 3 SEO: the title is the blue link in Google results; the description is the grey text under it. Each page has its own, with keywords like "flower boutique Johannesburg" -->
+    <title>About Us | Bloom and Blossom Flower Boutique</title>
+    <meta name="description" content="Learn how Bloom and Blossom began, why we buy roses directly from Highveld growers, and where to find our flower studios in Johannesburg and Menlyn.">
+    <meta name="author" content="Bloom and Blossom">
+    <!-- Part 3 SEO: Open Graph tags control how the page looks when shared on social media -->
+    <meta property="og:title" content="About Us | Bloom and Blossom Flower Boutique">
+    <meta property="og:description" content="Learn how Bloom and Blossom began, why we buy roses directly from Highveld growers, and where to find our flower studios in Johannesburg and Menlyn.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_ZA">
+    <!-- Part 3 Security: Content Security Policy only allows files from this site
+         (plus OpenStreetMap map tiles) and stops injected scripts from running -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <!-- Favicon: the small logo shown on the browser tab -->
+    <link rel="icon" href="_images/businesslogo.png" type="image/png">
+    <!-- Part 3 fix: the original link tag was missing its closing ">" which
+         swallowed the title tag -->
+    <!-- Stylesheet: one CSS file styles every page -->
+    <link rel="stylesheet" href="css_assets/myfirststyles.css">
+</head>
+<!-- Everything inside <body> is what the visitor sees -->
+<body>
+    <!-- Header: logo, menu and page title -->
+    <header>
+    <!-- Logo: alt text describes the image; width/height stop the page jumping while it loads; responsive-image class lets it shrink on small screens -->
+    <img class="responsive-image" src="_images/businesslogo.png" alt="Bloom and Blossom flower boutique logo" width="200" height="200">
+    <nav>
+        <!-- Main menu: aria-current marks the page the visitor is on -->
+        <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" aria-current="page">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="enquiries.html">Enquiries</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ol>
+    </nav>
+    <!-- Page heading (h1): only one per page, important for SEO -->
+    <h1 style="color:rgb(219, 93, 173)">About us</h1>
+    </header>
+    <!-- Main: the unique content of this page -->
+    <main>
+    <!-- Part 3: tabs (built by about.js with jQuery). Without JavaScript both panels simply show one after the other. -->
+    <section class="tabs fade-in" aria-label="About Bloom and Blossom">
+        <!-- Tab 1: the original About text. data-tab-title becomes the tab button name (about.js) -->
+        <div id="about-panel-story" class="tab-panel" data-tab-title="Our story">
+    <p>At Bloom and Blossom, we believe flowwers have the power to express feelings, create beautiful memories,and make every moment special.
+        Bloom and Blossom began when our founder, Boitumelo, got tired of ordering flowers online and recieving something that looked nothing 
+        like the photo and nothing like what was actually growing in South Africa that week. She strated buying directly from Highveld growers 
+        and trying rose bunches to order from a table at the Melville Sunday market. That habit never really changed. We're a proper studio now,
+        with a shopfront on 7th street and a small team of florist, but every arrangement still starts with the question "which roses are actually good this week?" rather than fixed catalogue.
+         Its slower, and occationally means telling a customer we're out of colour but its why the roses last and why they look like they came from somewhere real.
+     </p>
+        </div>
+        <!-- Tab 2: where the business is. Links to other pages help SEO (internal linking) -->
+        <div id="about-panel-where" class="tab-panel" data-tab-title="Where to find us">
+    <p>We are business situated in Johannesburg and Menlyn </p>
+    <!-- Part 3 update: more detail about each location. Sub-headings (h3) sit under the page h1 for good heading order -->
+    <h3>Johannesburg (Midrand)</h3>
+    <p>Our Johannesburg location is in Midrand, halfway between Johannesburg and Pretoria. It is the closest option if you live or work in Midrand, Sandton, Centurion or the northern parts of Johannesburg.</p>
+    <h3>Menlyn, Pretoria</h3>
+    <p>Our second location is in Menlyn, in the east of Pretoria. It suits customers in Menlyn, Waterkloof, Brooklyn, Lynnwood and Garsfontein.</p>
+    <h3>How to collect your order</h3>
+    <ul>
+        <li>Choose Johannesburg or Menlyn as your collection location on the <a href="enquiries.html">enquiries form</a>.</li>
+        <li>Chat to us first on WhatsApp or call <a href="tel:+27682097787">068 209 7787</a> so we can confirm that your flowers are ready and the best time to collect.</li>
+        <li>Want to see what we have? <a href="services.html">Browse our bouquets</a> before you visit.</li>
+    </ul>
+    <h3>Find us and follow us</h3>
+    <ul>
+        <li>Each location has its own map, with a link to Google Maps directions, on our <a href="contact.html">contact page</a>.</li>
+        <li>Instagram and TikTok: <a href="contact.html">@BloomAndBlossom</a>.</li>
+        <li>WhatsApp and phone: 068 209 7787.</li>
+    </ul>
+    <p>Have a question about an event or a special order? Send us a message using the form on our <a href="contact.html">contact page</a>.</p>
+        </div>
+    </section>
+    </main>
+    <!-- Part 3: footer added (semantic layout + internal links + contact details) -->
+    <footer>
+        <p>&copy; 2026 Bloom and Blossom | Flower boutique in Johannesburg and Menlyn</p>
+        <p><a href="services.html">Our bouquets</a> | <a href="enquiries.html">Place an enquiry</a> | <a href="contact.html">Find us</a> | <a href="tel:+27682097787">068 209 7787</a></p>
+    </footer>
+    <!-- jQuery library (stored in this project). Must load before the scripts that use it -->
+    <script src="js_assets/jquery-3.7.1.min.js"></script>
+    <!-- main.js: scroll fade-in animation, used on every page -->
+    <script src="js_assets/main.js"></script>
+    <!-- about.js: builds the tabs with jQuery -->
+    <script src="js_assets/about.js"></script>
+</body>
+</html>

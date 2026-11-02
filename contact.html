@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Character set: lets the page show all letters and symbols correctly -->
+    <meta charset="UTF-8">
+    <!-- Viewport: makes the page fit phone and tablet screens (needed for mobile-friendly SEO) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Part 3 SEO: the title is the blue link in Google results; the description is the grey text under it. Each page has its own, with keywords like "flower boutique Johannesburg" -->
+    <title>Contact Us | Bloom and Blossom Johannesburg &amp; Menlyn</title>
+    <meta name="description" content="Contact Bloom and Blossom flower boutique. Find our Johannesburg and Menlyn locations on the map, or call and WhatsApp 068 209 7787.">
+    <meta name="author" content="Bloom and Blossom">
+    <!-- Part 3 SEO: Open Graph tags control how the page looks when shared on social media -->
+    <meta property="og:title" content="Contact Us | Bloom and Blossom Johannesburg &amp; Menlyn">
+    <meta property="og:description" content="Contact Bloom and Blossom flower boutique. Find our Johannesburg and Menlyn locations on the map, or call and WhatsApp 068 209 7787.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_ZA">
+    <!-- Part 3 Security: Content Security Policy only allows files from this site
+         (plus OpenStreetMap map tiles) and stops injected scripts from running -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <!-- Favicon: the small logo shown on the browser tab -->
+    <link rel="icon" href="_images/businesslogo.png" type="image/png">
+    <!-- Part 3 fix: the original link tag was missing its closing ">" which
+         swallowed the title tag -->
+    <!-- Stylesheet: one CSS file styles every page -->
+    <link rel="stylesheet" href="css_assets/myfirststyles.css">
+    <!-- Leaflet map stylesheet (stored in this project) -->
+    <link rel="stylesheet" href="js_assets/leaflet/leaflet.css">
+</head>
+<!-- Everything inside <body> is what the visitor sees -->
+<body>
+    <!-- Header: logo, menu and page title -->
+    <header>
+        <!-- Logo: alt text describes the image; width/height stop the page jumping while it loads; responsive-image class lets it shrink on small screens -->
+        <img class="responsive-image" src="_images/businesslogo.png" alt="Bloom and Blossom flower boutique logo" width="200" height="200">
+    <nav>
+        <!-- Main menu: aria-current marks the page the visitor is on -->
+        <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Service</a></li>
+            <li><a href="enquiries.html">Enquiries</a></li>
+            <li><a href="contact.html" aria-current="page">Contact Us</a></li>
+        </ol>
+    </nav>
+        <!-- Page heading (h1): only one per page, important for SEO -->
+        <h1 style="color:rgb(219, 93, 173)"> Contact Us</h1>
+    </header>
+    <!-- Main: the unique content of this page -->
+    <main>
+        <p class="fade-in"> For more information contact us</p>
+
+        <!-- Part 3 update: TWO separate Leaflet maps, one per location (contact.js).
+             Each has two plain links (Google Maps and directions) that work even without JavaScript. -->
+        <section class="map-wrapper fade-in" aria-labelledby="map-heading">
+            <h2 id="map-heading">Our locations</h2>
+            <div class="maps-grid">
+                <article class="map-card">
+                    <h3>Johannesburg (Midrand)</h3>
+                    <!-- Empty box: contact.js draws the Johannesburg map inside it -->
+                    <div id="map-johannesburg" class="map-box" role="region" aria-label="Map showing the Bloom and Blossom Johannesburg (Midrand) location"></div>
+                    <p class="map-links">
+                        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=-25.9819021,28.1329403" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                        <a class="btn btn-secondary" href="https://www.google.com/maps/dir/?api=1&amp;destination=-25.9819021,28.1329403" target="_blank" rel="noopener noreferrer">Get directions</a>
+                    </p>
+                </article>
+                <article class="map-card">
+                    <h3>Menlyn, Pretoria</h3>
+                    <!-- Empty box: contact.js draws the Menlyn map inside it -->
+                    <div id="map-menlyn" class="map-box" role="region" aria-label="Map showing the Bloom and Blossom Menlyn, Pretoria location"></div>
+                    <p class="map-links">
+                        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=-25.7818819,28.2767811" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+                        <a class="btn btn-secondary" href="https://www.google.com/maps/dir/?api=1&amp;destination=-25.7818819,28.2767811" target="_blank" rel="noopener noreferrer">Get directions</a>
+                    </p>
+                </article>
+            </div>
+            <noscript><p>The maps need JavaScript. Use the Google Maps links above, or call 068 209 7787.</p></noscript>
+        </section>
+
+        <!-- Part 3: list items were not inside a list; wrapped in a ul and given working links -->
+        <ul class="contact-list fade-in">
+            <li><img src="_images/instagramicon.gif" alt="Instagram" width="20" height="20"><a href="https://www.instagram.com/BloomAndBlossom/" target="_blank" rel="noopener noreferrer">@BloomAndBlossom</a></li>
+            <li><img src="_images/tiktokicon.png" alt="TikTok" width="20" height="20"><a href="https://www.tiktok.com/@BloomAndBlossom" target="_blank" rel="noopener noreferrer">@BloomAndBlossom</a></li>
+            <li><img src="_images/whatsappicon.png" alt="WhatsApp" width="20" height="20"><a href="https://wa.me/27682097787" target="_blank" rel="noopener noreferrer">0682097787</a></li>
+            <li><img src="_images/callicon.png" alt="Phone" width="20" height="20"><a href="tel:+27682097787">0682097787</a></li>
+        </ul>
+
+        <!-- Part 3 update: second form on the site. Same idea as the enquiries form: novalidate so contactform.js
+             can show its own messages. Field ids start with "cf-" (contact form) so they never clash with other forms. -->
+        <section class="message-section fade-in" aria-labelledby="message-heading">
+            <h2 id="message-heading">Send us a message</h2>
+            <p>Planning an event or a special order? Tell us about it and we will get back to you.</p>
+            <form id="message-form" class="enquiry-form" novalidate>
+                <!-- Name: required -->
+                <div class="form-row">
+                    <label for="cf-name">Your name</label>
+                    <input type="text" id="cf-name" name="name" autocomplete="name" required>
+                    <span class="field-error" id="cf-name-error" role="alert"></span>
+                </div>
+                <!-- Email: type="email" shows an email keyboard on phones -->
+                <div class="form-row">
+                    <label for="cf-email">Email</label>
+                    <input type="email" id="cf-email" name="email" autocomplete="email" required>
+                    <span class="field-error" id="cf-email-error" role="alert"></span>
+                </div>
+                <!-- Occasion: drop-down list -->
+                <div class="form-row">
+                    <label for="cf-occasion">What is the occasion?</label>
+                    <select id="cf-occasion" name="occasion" required>
+                        <option value="">Please choose...</option>
+                        <option value="Birthday">Birthday</option>
+                        <option value="Anniversary">Anniversary</option>
+                        <option value="Wedding">Wedding</option>
+                        <option value="Valentine's Day">Valentine's Day</option>
+                        <option value="Sympathy">Sympathy</option>
+                        <option value="Thank you">Thank you</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <span class="field-error" id="cf-occasion-error" role="alert"></span>
+                </div>
+                <!-- Date: optional, but contactform.js stops dates in the past -->
+                <div class="form-row">
+                    <label for="cf-date">Date needed (optional)</label>
+                    <input type="date" id="cf-date" name="date">
+                    <span class="field-error" id="cf-date-error" role="alert"></span>
+                </div>
+                <!-- Radio buttons: one way of contacting the customer -->
+                <div class="form-row">
+                    <fieldset>
+                        <legend>How should we reply?</legend>
+                        <label><input type="radio" name="reply" value="WhatsApp"> WhatsApp</label>
+                        <label><input type="radio" name="reply" value="Phone call"> Phone call</label>
+                        <label><input type="radio" name="reply" value="Email"> Email</label>
+                    </fieldset>
+                    <span class="field-error" id="cf-reply-error" role="alert"></span>
+                </div>
+                <!-- Message: required, 10 to 500 characters -->
+                <div class="form-row">
+                    <label for="cf-message">Your message</label>
+                    <textarea id="cf-message" name="message" rows="5" maxlength="500" required></textarea>
+                    <span class="field-error" id="cf-message-error" role="alert"></span>
+                    <span id="cf-message-count" aria-live="polite">0 / 500</span>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn">Send message</button>
+                    <button type="reset" class="btn btn-secondary">Clear form</button>
+                </div>
+            </form>
+
+            <!-- Hidden pop-up shown after a valid message (jQuery, contactform.js) -->
+            <div id="message-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="message-modal-title">
+                <div class="modal">
+                    <h2 id="message-modal-title">Your message</h2>
+                    <div id="message-modal-summary"></div>
+                    <p>Tap the button below to send this message to us on WhatsApp.</p>
+                    <p class="modal-actions">
+                        <a id="message-whatsapp-link" class="btn" href="https://wa.me/27682097787" target="_blank" rel="noopener noreferrer">Send on WhatsApp</a>
+                        <button type="button" id="message-modal-close" class="btn btn-secondary">Close</button>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <p>Ready to order? Go to our <a href="enquiries.html">enquiries page</a> or see <a href="services.html">our bouquets</a>.</p>
+    </main>
+    <!-- Part 3: footer added (semantic layout + internal links + contact details) -->
+    <footer>
+        <p>&copy; 2026 Bloom and Blossom | Flower boutique in Johannesburg and Menlyn</p>
+        <p><a href="services.html">Our bouquets</a> | <a href="enquiries.html">Place an enquiry</a> | <a href="contact.html">Find us</a> | <a href="tel:+27682097787">068 209 7787</a></p>
+    </footer>
+    <!-- jQuery library (stored in this project). Used by the modal in contactform.js -->
+    <script src="js_assets/jquery-3.7.1.min.js"></script>
+    <!-- main.js: scroll fade-in animation, used on every page -->
+    <script src="js_assets/main.js"></script>
+    <!-- Leaflet map library (stored in this project). Must load before contact.js -->
+    <script src="js_assets/leaflet/leaflet.js"></script>
+    <!-- contact.js: creates the map and the two markers -->
+    <script src="js_assets/contact.js"></script>
+    <!-- contactform.js: validation and modal for the message form -->
+    <script src="js_assets/contactform.js"></script>
+</body>
+</html>

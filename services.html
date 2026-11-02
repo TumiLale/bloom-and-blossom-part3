@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Character set: lets the page show all letters and symbols correctly -->
+    <meta charset="UTF-8">
+    <!-- Viewport: makes the page fit phone and tablet screens (needed for mobile-friendly SEO) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Part 3 SEO: the title is the blue link in Google results; the description is the grey text under it. Each page has its own, with keywords like "flower boutique Johannesburg" -->
+    <title>Rose Bouquets &amp; Tulips | Bloom and Blossom Services</title>
+    <meta name="description" content="Browse Bloom and Blossom bouquets: red rose bouquets, pink rose bouquets, red and pink bouquets and tulips. Search by colour and order in Johannesburg or Menlyn.">
+    <meta name="author" content="Bloom and Blossom">
+    <!-- Part 3 SEO: Open Graph tags control how the page looks when shared on social media -->
+    <meta property="og:title" content="Rose Bouquets &amp; Tulips | Bloom and Blossom Services">
+    <meta property="og:description" content="Browse Bloom and Blossom bouquets: red rose bouquets, pink rose bouquets, red and pink bouquets and tulips. Search by colour and order in Johannesburg or Menlyn.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_ZA">
+    <!-- Part 3 Security: Content Security Policy only allows files from this site
+         (plus OpenStreetMap map tiles) and stops injected scripts from running -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://tile.openstreetmap.org; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <!-- Favicon: the small logo shown on the browser tab -->
+    <link rel="icon" href="_images/businesslogo.png" type="image/png">
+    <!-- Part 3 fix: the original link tag was missing its closing ">" which
+         swallowed the title tag -->
+    <!-- Stylesheet: one CSS file styles every page -->
+    <link rel="stylesheet" href="css_assets/myfirststyles.css">
+</head>
+<!-- Everything inside <body> is what the visitor sees -->
+<body>
+   <!-- Header: logo, menu and page title -->
+   <header>
+        <!-- Logo: alt text describes the image; width/height stop the page jumping while it loads; responsive-image class lets it shrink on small screens -->
+        <img class="responsive-image" src="_images/businesslogo.png" alt="Bloom and Blossom flower boutique logo" width="200" height="200">
+    <nav>
+        <!-- Main menu: aria-current marks the page the visitor is on -->
+        <ol>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html" aria-current="page">Service</a></li>
+            <li><a href="enquiries.html">Enquiries</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ol>
+    </nav>
+        <!-- Page heading (h1): only one per page, important for SEO -->
+        <h1 style="color:rgb(219, 93, 173)">Our Service</h1>
+   </header>
+   <!-- Main: the unique content of this page -->
+   <main>
+        <p class="fade-in">We offer beautiful, fresh flowers carefully arranged for every special moment.Whether you're celebrating love, a birthday, a wedding, or simply want to brighten someone's day, we create bouquets that make every occasion memorable.</p> 
+        <!-- Original list of bouquet types (kept as it was) -->
+        <ul class="fade-in">
+            <li>
+                tulips bouquet
+            </li>
+            <li>
+                redandpinkbouquet
+            </li>
+            <li>
+                redonlybouquet
+            </li>
+            <li> 
+                pinkonlybouquet
+            </li>
+        </ul> 
+        <!-- Part 3: the four existing photos are now a gallery. Clicking one opens it in the lightbox (services.js). -->
+        <div class="gallery fade-in" aria-label="Bouquet photo gallery">
+            <a href="_images/tulips.avif" data-caption="Red tulips wrapped in kraft paper with a ribbon"><img class="responsive-image" src="_images/tulips.avif" alt="Red tulips wrapped in kraft paper with a ribbon" width="200" height="200" loading="lazy" decoding="async"></a>
+            <a href="_images/redandpinkbouquet.jpg" data-caption="Red and pink rose bouquet with baby's breath in pink wrapping"><img class="responsive-image" src="_images/redandpinkbouquet.jpg" alt="Red and pink rose bouquet with baby's breath in pink wrapping" width="200" height="200" loading="lazy" decoding="async"></a>
+            <a href="_images/redonlybouquet.jpg" data-caption="Large red rose bouquet wrapped in black paper"><img class="responsive-image" src="_images/redonlybouquet.jpg" alt="Large red rose bouquet wrapped in black paper" width="200" height="200" loading="lazy" decoding="async"></a>
+            <a href="_images/pinkbouquet.jpg" data-caption="Pink rose bouquet with baby's breath in a frosted wrap"><img class="responsive-image" src="_images/pinkbouquet.jpg" alt="Pink rose bouquet with baby's breath in a frosted wrap" width="200" height="200" loading="lazy" decoding="async"></a>
+        </div>
+
+        <!-- Part 3: dynamic product list with search, filter and sort (built by services.js) -->
+        <section id="catalogue" aria-labelledby="catalogue-heading" class="fade-in">
+            <h2 id="catalogue-heading">Find your flowers</h2>
+            <!-- Search bar: each label is joined to its input by matching for/id, which helps screen readers. services.js reads these controls. -->
+            <form id="search-form" class="search-bar" role="search" novalidate>
+                <div>
+                    <label for="search-input">Search</label>
+                    <input type="search" id="search-input" name="search" placeholder="e.g. roses, tulips">
+                </div>
+                <div>
+                    <label for="filter-colour">Colour</label>
+                    <select id="filter-colour" name="colour">
+                        <option value="all">All colours</option>
+                        <option value="red">Red</option>
+                        <option value="pink">Pink</option>
+                        <option value="mixed">Red and pink</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="filter-type">Type</label>
+                    <select id="filter-type" name="type">
+                        <option value="all">All types</option>
+                        <option value="bouquet">Bouquets</option>
+                        <option value="flowers">Flowers</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="sort-by">Sort by</label>
+                    <select id="sort-by" name="sort">
+                        <option value="name-asc">Name (A to Z)</option>
+                        <option value="name-desc">Name (Z to A)</option>
+                        <option value="colour">Colour</option>
+                    </select>
+                </div>
+            </form>
+            <!-- Shows how many flowers match. aria-live lets screen readers announce changes -->
+            <p id="results-count" aria-live="polite"></p>
+            <!-- Empty box: services.js fills it with one card per flower (class container = grid in the CSS) -->
+            <div id="product-list" class="container"></div>
+            <!-- Message shown only if JavaScript is turned off -->
+            <noscript><p>Please turn on JavaScript to search our bouquets, or visit our <a href="enquiries.html">enquiries page</a>.</p></noscript>
+        </section>
+
+        <!-- Part 3: accordion (built by services.js with jQuery) -->
+        <section id="faq" aria-labelledby="faq-heading" class="fade-in">
+            <h2 id="faq-heading">Ordering questions</h2>
+            <!-- Each question is a button; the answer below it opens and closes. aria-expanded tells screen readers if it is open -->
+            <div class="accordion">
+                <h3><button type="button" class="accordion-header" aria-expanded="false" aria-controls="faq-1">How do I order?</button></h3>
+                <div id="faq-1" class="accordion-panel"><p>Choose a bouquet above, then complete the form on our <a href="enquiries.html">enquiries page</a>. You can also call or WhatsApp us on 068 209 7787.</p></div>
+                <h3><button type="button" class="accordion-header" aria-expanded="false" aria-controls="faq-2">Where are you based?</button></h3>
+                <div id="faq-2" class="accordion-panel"><p>Bloom and Blossom is situated in Johannesburg and Menlyn. See both on the map on our <a href="contact.html">contact page</a>.</p></div>
+                <h3><button type="button" class="accordion-header" aria-expanded="false" aria-controls="faq-3">Where do your flowers come from?</button></h3>
+                <div id="faq-3" class="accordion-panel"><p>We buy directly from Highveld growers and choose our roses by what is actually good that week. Read more <a href="about.html">about us</a>.</p></div>
+            </div>
+        </section>
+   </main>
+    <!-- Part 3: footer added (semantic layout + internal links + contact details) -->
+    <footer>
+        <p>&copy; 2026 Bloom and Blossom | Flower boutique in Johannesburg and Menlyn</p>
+        <p><a href="services.html">Our bouquets</a> | <a href="enquiries.html">Place an enquiry</a> | <a href="contact.html">Find us</a> | <a href="tel:+27682097787">068 209 7787</a></p>
+    </footer>
+   <!-- jQuery library (stored in this project). Must load before the scripts that use it -->
+    <script src="js_assets/jquery-3.7.1.min.js"></script>
+   <!-- main.js: scroll fade-in animation, used on every page -->
+    <script src="js_assets/main.js"></script>
+   <!-- lightbox.js: the image viewer for the gallery and the View photo buttons -->
+   <script src="js_assets/lightbox.js"></script>
+   <!-- services.js: builds the product cards, search/filter/sort, accordion -->
+   <script src="js_assets/services.js"></script>
+</body>
+</html>
